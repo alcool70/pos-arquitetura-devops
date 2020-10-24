@@ -1,91 +1,73 @@
 package com.rodrigofujioka.dev.web.service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
-import javax.naming.directory.NoSuchAttributeException;
-import javax.persistence.NoResultException;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.rodrigofujioka.dev.web.domain.Disciplina;
 import com.rodrigofujioka.dev.web.repository.DisciplinaRepository;
 import com.rodrigofujioka.dev.web.service.dto.DisciplinaBuscaAnoDTO;
 import com.rodrigofujioka.dev.web.service.dto.DisciplinaNomeProfessorDTO;
-
 import javassist.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DisciplinaService {
-	
+
 	@Autowired
 	private DisciplinaRepository disciplinaRepository;
-	
-	
+
+
 	public List<Disciplina> getDisciplinaByNomeAndProfessor(String nome, String professor) {
-		
+
 		/*
 		 * Set<Disciplina> lista = new
 		 * HashSet<Disciplina>(disciplinaRepository.findDisciplinaByNomeAndProfessor(
 		 * nome, professor));
 		 */
-				
-		return disciplinaRepository.findDisciplinaByNomeAndProfessor(nome, professor);				
-		
+		return disciplinaRepository.findDisciplinaByNomeAndProfessor(nome, professor);
 	}
-	
+
 	public List<Disciplina> getDisciplinaEntreAnos(DisciplinaBuscaAnoDTO dto) {
-		 
-		List<Disciplina> listaDisciplinas = 
-				disciplinaRepository.findByAnoDisciplinaBetween(dto.getAnoInicial(), dto.getAnoFinal());				
-		return listaDisciplinas;
-		
+		return disciplinaRepository.findByAnoDisciplinaBetween(dto.getAnoInicial(), dto.getAnoFinal());
 	}
-	
-	public List<Disciplina> getDisciplinaEntreAnos(int anoInicial, int anoFinal)  {
-		 
-		List<Disciplina> listaDisciplinas = 
-				disciplinaRepository.findByAnoDisciplinaBetween(anoInicial, anoFinal);			
-		return listaDisciplinas;
-		
+
+	public List<Disciplina> getDisciplinaEntreAnos(int anoInicial, int anoFinal) {
+		return disciplinaRepository.findByAnoDisciplinaBetween(anoInicial, anoFinal);
 	}
-	
-	
-	
+
+
 	public DisciplinaNomeProfessorDTO getDisciplinaPorId(Long id) throws NotFoundException {
-		 Optional<Disciplina> disciplina = disciplinaRepository.findById(id);
-		 if(!disciplina.isEmpty())
-			 throw new NotFoundException("Disciplina não localizada");
-		
+		Optional<Disciplina> disciplina = disciplinaRepository.findById(id);
+		if (disciplina.isPresent())
+			throw new NotFoundException("Disciplina não localizada");
+
 		return new DisciplinaNomeProfessorDTO(disciplina.get());
-		
+
 	}
-	
-	public Disciplina salvar(Disciplina disciplina) {		
+
+	public Disciplina salvar(Disciplina disciplina) {
 		return disciplinaRepository.save(disciplina);
 	}
-	
+
 	public Disciplina consultaPorId(Long id) {
-		return disciplinaRepository.findById(id).get();				
+		return disciplinaRepository.findById(id).get();
 	}
-	
+
 	public void deletePorId(Long id) {
 		disciplinaRepository.deleteById(id);
 	}
-	
-	public List<Disciplina> listar(){
+
+	public List<Disciplina> listar() {
 		return disciplinaRepository.findAll();
 	}
-	
+
 	public Disciplina update(Disciplina disciplina) {
-		if(disciplina!=null) {
+		if (disciplina != null) {
 			return disciplinaRepository.save(disciplina);
 		}
 		throw new RuntimeException("ID precisar ser informado");
 	}
-	
+
 
 }

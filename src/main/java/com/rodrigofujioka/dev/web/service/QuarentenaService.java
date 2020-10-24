@@ -20,9 +20,8 @@ public class QuarentenaService {
 
 	public Quarentena salvar(Quarentena quarentena) {
 
-		if (quarentena.getUf().equalsIgnoreCase("PB")) {
+		if (quarentena.getUf().equalsIgnoreCase("PB"))
 			throw new RuntimeException("Estado não possui teste");
-		}
 
 		return quarentenaRepository.save(quarentena);
 	}
@@ -37,15 +36,14 @@ public class QuarentenaService {
 
 	public Quarentena getQuarentenaById(Long id) throws NotFoundException {
 		Optional<Quarentena> quarentena = quarentenaRepository.findById(id);
-		if (!quarentena.isPresent()) {
+		if (quarentena.isEmpty())
 			throw new NotFoundException("Quarentena não localizada");
-		}
 		return quarentena.get();
 	}
 	
 	public QuarentenaNomeCidadeDTO getQuarentenaNomeCidadeById(Long id) throws NotFoundException {
 		Optional<Quarentena> quarentena = quarentenaRepository.findById(id);
-		if (!quarentena.isPresent()) {
+		if (quarentena.isEmpty()) {
 			throw new NotFoundException("Quarentena não localizada");
 		}
 		return new QuarentenaNomeCidadeDTO(quarentena.get());
@@ -54,7 +52,7 @@ public class QuarentenaService {
 
 	public void deleteQuarentenaById(Long id) throws NotFoundException {
 		Optional<Quarentena> quarentena = quarentenaRepository.findById(id);
-		if (!quarentena.isPresent()) {
+		if (quarentena.isEmpty()) {
 			throw new NotFoundException("Quarentena não localizada");
 		}
 		quarentenaRepository.delete(quarentena.get());

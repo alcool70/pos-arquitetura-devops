@@ -8,14 +8,14 @@ import org.springframework.stereotype.Repository;
 import com.rodrigofujioka.dev.web.domain.Quarentena;
 
 @Repository
-public interface QuarentenaRepository 
-                  extends JpaRepository<Quarentena, Long>{
-	
+public interface QuarentenaRepository
+				extends JpaRepository<Quarentena, Long> {
+
 	//select * from quarentena where uf=
-	public List<Quarentena> findQuarentenaByUf(String uf);
-	
-	public List<Quarentena> findQuarentenaByUfAndCidade(String uf, String cidade);
-	
-	public List<Quarentena> findQuarentenaByNomePessoaAndUf(String nomePessoa, String uf);
+	List<Quarentena> findQuarentenaByUf(String uf);
+
+	List<Quarentena> findQuarentenaByUfAndCidade(String uf, String cidade);
+
+	List<Quarentena> findQuarentenaByNomePessoaAndUf(String nomePessoa, String uf);
 
 }
