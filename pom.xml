@@ -1,83 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.10.RELEASE</version>
-		<relativePath /> 
-	</parent>
-	
-	
-	<groupId>br.fujideia</groupId>
-	<artifactId>engenharia</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
-	<name>webapp</name>
-	<description>Projeto da disciplina de programação Avançada para web</description>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.10.RELEASE</version>
+        <relativePath/>
+    </parent>
 
-	<properties>		
-		<sonar.projectKey>fujioka</sonar.projectKey>
-		<sonar.host.url>http://ip172-18-0-16-bu6c469qckh0009kg04g-9000.direct.labs.play-with-docker.com</sonar.host.url>
-		<sonar.login>a9c79ab956a8c913d1620d7e4588ebd665e86f14</sonar.login>	
-		<sonar.language>java</sonar.language>	
-		<sonar.sources>src/main/java</sonar.sources>
-		<sonar.java.binaries>target/classes</sonar.java.binaries>
-	</properties>
+    <groupId>br.fujideia</groupId>
+    <artifactId>pos-engenharia</artifactId>
+    <name>alcool70-webapp</name>
+    <version>0.1.1-SNAPSHOT</version>
+    <description>Projeto da disciplina de programação Avançada para web
+    </description>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>com.h2database</groupId>
-		    <artifactId>h2</artifactId>
-		</dependency>
-		
-		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		
-	</dependencies>
-	
-	
-	<profiles>
-	 <profile>
+    <properties>
+        <sonar.projectKey>alcool70-posengsoft</sonar.projectKey>
+        <sonar.host.url>
+            http://ip172-18-0-78-bua7cmhqckh000dh3a1g-9000.direct.labs.play-with-docker.com
+        </sonar.host.url>
+        <sonar.login>0314a231aaf7f8f196c462a5a0d381d69346d965</sonar.login>
+        <sonar.language>java</sonar.language>
+        <sonar.sources>src/main/java</sonar.sources>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
             <id>dev</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-           	<build>		
-			<plugins>
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-				</plugin>
-			</plugins>
-		</build>
-        </profile>	
-		
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <profile>
             <id>sonar</id>
             <activation>
@@ -89,6 +87,7 @@
                     <plugin>
                         <groupId>org.sonarsource.scanner.maven</groupId>
                         <artifactId>sonar-maven-plugin</artifactId>
+                        <version>3.7.0.1746</version>
                         <executions>
                             <execution>
                                 <id>run-sonar</id>
@@ -101,7 +100,7 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>				
-       </profiles>
-	
+        </profile>
+    </profiles>
+
 </project>
