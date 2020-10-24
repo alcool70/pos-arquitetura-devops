@@ -25,7 +25,7 @@
         <sonar.login>0314a231aaf7f8f196c462a5a0d381d69346d965</sonar.login>
         <sonar.language>java</sonar.language>
         <sonar.sources>src/main/java</sonar.sources>
-        <sonar.java.binaries>target/classes</sonar.java.binaries>
+<!--        <sonar.java.binaries>target/classes</sonar.java.binaries>-->
     </properties>
 
     <dependencies>
