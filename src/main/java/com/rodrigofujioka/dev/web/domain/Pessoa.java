@@ -2,12 +2,9 @@ package com.rodrigofujioka.dev.web.domain;
 
 import javax.persistence.*;
 
-//@MappedSuperclass
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_pessoa", discriminatorType = DiscriminatorType.INTEGER)
-//@Inheritance(strategy = InheritanceType.JOINED)
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Pessoa {
 
 	@Id
@@ -19,27 +16,8 @@ public class Pessoa {
 	private String email;
 
 	public Long getId() { return id; }
-
 	public void setId(Long id) { this.id = id; }
-
 	public String getNome() { return nome; }
-
 	public void setNome(String nome) { this.nome = nome; }
-
-//	public String getTelefone() { return telefone; }
-//
-//	public void setTelefone(String telefone) { this.telefone = telefone; }
-//
-//	public String getCidade() { return cidade; }
-//
-//	public void setCidade(String cidade) { this.cidade = cidade; }
-//
-//	public String getUf() { return uf; }
-//
-//	public void setUf(String uf) { this.uf = uf; }
-//
-//	public String getEmail() { return email; }
-//
-//	public void setEmail(String email) { this.email = email; }
 
 }

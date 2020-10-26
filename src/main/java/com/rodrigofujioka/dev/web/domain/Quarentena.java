@@ -46,8 +46,5 @@ public class Quarentena {
 	public void setDiasQuarentena(int diasQuarentena) {
 		this.diasQuarentena = diasQuarentena;
 	}
-	
-	
-	
 
 }

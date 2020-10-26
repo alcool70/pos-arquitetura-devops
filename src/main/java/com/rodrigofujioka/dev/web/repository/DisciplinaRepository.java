@@ -9,10 +9,8 @@ import java.util.List;
 @Repository
 public interface DisciplinaRepository extends JpaRepository<Disciplina, Long> {
 
-	//select * from Disciplina where professor='Fujioka'
 	List<Disciplina> findDisciplinaByProfessor(String professor);
 	
-	//select * from Disciplina where nome='java' and professor='Fujioka' 
 	List<Disciplina> findDisciplinaByNomeAndProfessor(String nome, String professor);
 	
 	List<Disciplina> findDisciplinaByAnoDisciplinaBetween(int anoInicial, int anoFinal);

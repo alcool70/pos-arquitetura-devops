@@ -9,7 +9,6 @@ import java.util.List;
 @Repository
 public interface QuarentenaRepository extends JpaRepository<Quarentena, Long> {
 
-	//select * from quarentena where uf=
 	List<Quarentena> findQuarentenaByUf(String uf);
 
 	List<Quarentena> findQuarentenaByUfAndCidade(String uf, String cidade);

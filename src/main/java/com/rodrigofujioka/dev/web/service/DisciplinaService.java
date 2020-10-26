@@ -19,12 +19,6 @@ public class DisciplinaService {
 
 
 	public List<Disciplina> getDisciplinaByNomeAndProfessor(String nome, String professor) {
-
-		/*
-		 * Set<Disciplina> lista = new
-		 * HashSet<Disciplina>(disciplinaRepository.findDisciplinaByNomeAndProfessor(
-		 * nome, professor));
-		 */
 		return disciplinaRepository.findDisciplinaByNomeAndProfessor(nome, professor);
 	}
 
@@ -35,7 +29,6 @@ public class DisciplinaService {
 	public List<Disciplina> getDisciplinaEntreAnos(int anoInicial, int anoFinal) {
 		return disciplinaRepository.findByAnoDisciplinaBetween(anoInicial, anoFinal);
 	}
-
 
 	public DisciplinaNomeProfessorDTO getDisciplinaPorId(Long id) throws NotFoundException {
 		Optional<Disciplina> disciplina = disciplinaRepository.findById(id);
@@ -72,6 +65,5 @@ public class DisciplinaService {
 		}
 		throw new RuntimeException("ID precisar ser informado");
 	}
-
 
 }

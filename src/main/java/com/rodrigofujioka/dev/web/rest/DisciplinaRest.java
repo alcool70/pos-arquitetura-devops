@@ -25,8 +25,8 @@ public class DisciplinaRest {
 	public ResponseEntity<Disciplina> salvar(@RequestBody @Valid DisciplinaDTO disciplinaDTO) {
 		Disciplina disciplina = new Disciplina();
 
-		disciplina.setId(disciplinaDTO.id);
-		disciplina.setNome(disciplinaDTO.nome);
+		disciplina.setId(disciplinaDTO.getId());
+		disciplina.setNome(disciplinaDTO.getNome());
 		return ResponseEntity.ok(disciplinaService.salvar(disciplina));
 	}
 
@@ -57,8 +57,8 @@ public class DisciplinaRest {
 	public ResponseEntity<Disciplina> update(@RequestBody @Valid DisciplinaDTO disciplinaDTO) {
 		Disciplina disciplina = new Disciplina();
 
-		disciplina.setId(disciplinaDTO.id);
-		disciplina.setNome(disciplinaDTO.nome);
+		disciplina.setId(disciplinaDTO.getId());
+		disciplina.setNome(disciplinaDTO.getNome());
 		return ResponseEntity.ok(disciplinaService.update(disciplina));
 	}
 

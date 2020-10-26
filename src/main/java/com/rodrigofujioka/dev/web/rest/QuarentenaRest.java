@@ -12,18 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-//www.rodrigofujioka.com
-//localhost:8080
-//localhost:8080/api
-//localhost:8080/api/quarentena
-
 @RestController
 @RequestMapping("/api")
 public class QuarentenaRest {
 
 	@Autowired
 	private QuarentenaService quarentenaService;
-	// private QuarentenaRepository quarentenaRepository;
 
 	@GetMapping("/quarentena/{estado}")
 	public ResponseEntity<List<Quarentena>> getQuarentena(@PathVariable String estado) {
@@ -33,11 +27,11 @@ public class QuarentenaRest {
 	@PostMapping("/quarentena")
 	public ResponseEntity<Quarentena> salvar(@RequestBody @Valid QuarentenaDTO quarentenaDTO) {
 		Quarentena quarentena = new Quarentena();
-		quarentena.setCidade(quarentenaDTO.cidade);
-		quarentena.setDiasQuarentena(quarentenaDTO.diasQuarentena);
-		quarentena.setId(quarentenaDTO.id);
-		quarentena.setNomePessoa(quarentenaDTO.nomePessoa);
-		quarentena.setUf(quarentenaDTO.uf);
+		quarentena.setCidade(quarentenaDTO.getCidade());
+		quarentena.setDiasQuarentena(quarentenaDTO.getDiasQuarentena());
+		quarentena.setId(quarentenaDTO.getId());
+		quarentena.setNomePessoa(quarentenaDTO.getNomePessoa());
+		quarentena.setUf(quarentenaDTO.getUf());
 
 		Quarentena quarentenaSalva = quarentenaService.salvar(quarentena);
 		return ResponseEntity.ok().body(quarentenaSalva);
