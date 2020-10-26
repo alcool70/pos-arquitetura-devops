@@ -14,18 +14,22 @@ public class Disciplina {
 
 	private String nome;
 	private String professor;
-	private int anoDisciplina;
 
-	public final String getNome() { return nome; }
+	public Disciplina(){}
 
-	public final void setNome(String nome) { this.nome = nome; }
+	public Disciplina(String nome, String professor) {
+		this.nome = nome;
+		this.professor = professor;
+	}
 
-	public final String getProfessor() { return professor; }
+	public String getNome() { return nome; }
 
-	public final int getAnoDisciplina() { return anoDisciplina; }
+	public void setNome(String nome) { this.nome = nome; }
 
-	public final Long getId() { return id; }
+	public String getProfessor() { return professor; }
 
-	public final void setId(Long id) { this.id = id; }
+	public Long getId() { return id; }
+
+	public void setId(Long id) { this.id = id; }
 	
 }

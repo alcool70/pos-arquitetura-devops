@@ -13,7 +13,6 @@ public class Produto {
 	private String localFabricacao;
 	private LocalDate dataVencimento;
 	private LocalDate dataCriacao;
-	private LocalDate dataAlteracao;
 
 
 	public LocalDate getDataCriacao() {
