@@ -14,6 +14,7 @@ public class Disciplina {
 
 	private String nome;
 	private String professor;
+	private int anoDisciplina;
 
 	public Disciplina(){}
 
@@ -26,10 +27,10 @@ public class Disciplina {
 
 	public void setNome(String nome) { this.nome = nome; }
 
+	public int getAnoDisciplina() { return anoDisciplina; }
 	public String getProfessor() { return professor; }
 
 	public Long getId() { return id; }
 
 	public void setId(Long id) { this.id = id; }
-	
 }

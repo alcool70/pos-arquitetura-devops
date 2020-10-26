@@ -4,7 +4,7 @@ public class DisciplinaDTO {
 	private Long id;
 	private String nome;
 	private String professor;
-//	private int anoDisciplina;
+	private int anoDisciplina;
 
 	public Long getId() { return id; }
 
@@ -18,8 +18,8 @@ public class DisciplinaDTO {
 
 	public void setProfessor(String professor) { this.professor = professor; }
 
-//	public int getAnoDisciplina() { return anoDisciplina; }
+	public int getAnoDisciplina() { return anoDisciplina; }
 
-//	public void setAnoDisciplina(int anoDisciplina) {
-//		this.anoDisciplina = anoDisciplina; }
+	public void setAnoDisciplina(int anoDisciplina) {
+		this.anoDisciplina = anoDisciplina; }
 }
