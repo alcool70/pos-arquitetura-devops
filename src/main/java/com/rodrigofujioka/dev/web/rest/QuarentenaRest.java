@@ -2,6 +2,7 @@ package com.rodrigofujioka.dev.web.rest;
 
 import com.rodrigofujioka.dev.web.domain.Quarentena;
 import com.rodrigofujioka.dev.web.service.QuarentenaService;
+import com.rodrigofujioka.dev.web.service.dto.QuarentenaDTO;
 import com.rodrigofujioka.dev.web.service.dto.QuarentenaNomeCidadeDTO;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,14 @@ public class QuarentenaRest {
 	}
 
 	@PostMapping("/quarentena")
-	public ResponseEntity<Quarentena> salvar(@RequestBody @Valid Quarentena quarentena) {
+	public ResponseEntity<Quarentena> salvar(@RequestBody @Valid QuarentenaDTO quarentenaDTO) {
+		Quarentena quarentena = new Quarentena();
+		quarentena.setCidade(quarentenaDTO.cidade);
+		quarentena.setDiasQuarentena(quarentenaDTO.diasQuarentena);
+		quarentena.setId(quarentenaDTO.id);
+		quarentena.setNomePessoa(quarentenaDTO.nomePessoa);
+		quarentena.setUf(quarentenaDTO.uf);
+
 		Quarentena quarentenaSalva = quarentenaService.salvar(quarentena);
 		return ResponseEntity.ok().body(quarentenaSalva);
 	}

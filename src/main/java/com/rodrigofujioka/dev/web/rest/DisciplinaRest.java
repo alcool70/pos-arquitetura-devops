@@ -3,6 +3,7 @@ package com.rodrigofujioka.dev.web.rest;
 import com.rodrigofujioka.dev.web.domain.Disciplina;
 import com.rodrigofujioka.dev.web.service.DisciplinaService;
 import com.rodrigofujioka.dev.web.service.dto.DisciplinaBuscaAnoDTO;
+import com.rodrigofujioka.dev.web.service.dto.DisciplinaDTO;
 import com.rodrigofujioka.dev.web.service.dto.DisciplinaNomeProfessorDTO;
 import javassist.NotFoundException;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,11 @@ public class DisciplinaRest {
 	private DisciplinaService disciplinaService;
 
 	@PostMapping("/disciplina")
-	public ResponseEntity<Disciplina> salvar(@RequestBody @Valid Disciplina disciplina) {
+	public ResponseEntity<Disciplina> salvar(@RequestBody @Valid DisciplinaDTO disciplinaDTO) {
+		Disciplina disciplina = new Disciplina();
+
+		disciplina.setId(disciplinaDTO.id);
+		disciplina.setNome(disciplinaDTO.nome);
 		return ResponseEntity.ok(disciplinaService.salvar(disciplina));
 	}
 
@@ -49,7 +54,11 @@ public class DisciplinaRest {
 	}
 
 	@PutMapping("/disciplina")
-	public ResponseEntity<Disciplina> update(@RequestBody @Valid Disciplina disciplina) {
+	public ResponseEntity<Disciplina> update(@RequestBody @Valid DisciplinaDTO disciplinaDTO) {
+		Disciplina disciplina = new Disciplina();
+
+		disciplina.setId(disciplinaDTO.id);
+		disciplina.setNome(disciplinaDTO.nome);
 		return ResponseEntity.ok(disciplinaService.update(disciplina));
 	}
 

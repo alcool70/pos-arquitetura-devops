@@ -18,15 +18,15 @@ public class Disciplina {
 	private int anoDisciplina;
 //	private String codigoInstituicao;
 
-	public String getNome() { return nome; }
+	public final String getNome() { return nome; }
 
-	public void setNome(String nome) { this.nome = nome; }
+	public final void setNome(String nome) { this.nome = nome; }
 
-	public String getProfessor() { return professor; }
+	public final String getProfessor() { return professor; }
 
 //	public void setProfessor(String professor) { this.professor = professor; }
 
-	public int getAnoDisciplina() { return anoDisciplina; }
+	public final int getAnoDisciplina() { return anoDisciplina; }
 
 //	public void setAnoDisciplina(int anoDisciplina) {
 //		this.anoDisciplina = anoDisciplina;
@@ -38,9 +38,9 @@ public class Disciplina {
 //		this.codigoInstituicao = codigoInstituicao;
 //	}
 
-	public Long getId() { return id; }
+	public final Long getId() { return id; }
 
-	public void setId(Long id) { this.id = id; }
+	public final void setId(Long id) { this.id = id; }
 
 //	public String getDescricao() { return descricao; }
 //
