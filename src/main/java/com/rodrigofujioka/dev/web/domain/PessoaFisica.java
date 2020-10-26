@@ -10,14 +10,9 @@ public class PessoaFisica extends Pessoa {
 
 	@NotEmpty
 	private String cpf;
-	
-	
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	
-		
+
+	public String getCpf() { return cpf; }
+
+	public void setCpf(String cpf) { this.cpf = cpf; }
+
 }

@@ -7,7 +7,6 @@ public class DisciplinaBuscaAnoDTO {
 
 
 	public DisciplinaBuscaAnoDTO(int anoInicial, int anoFinal) {
-		super();
 		this.anoInicial = anoInicial;
 		this.anoFinal = anoFinal;
 	}

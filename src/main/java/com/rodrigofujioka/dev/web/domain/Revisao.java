@@ -5,8 +5,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Revisao {
-	
-	@Id	
+
+	@Id
 	private int id;
 
 }

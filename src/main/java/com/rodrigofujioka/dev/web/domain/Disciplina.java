@@ -13,63 +13,37 @@ public class Disciplina {
 	private Long id;
 
 	private String nome;
-
-	private String descricao;
-
+//	private String descricao;
 	private String professor;
-
 	private int anoDisciplina;
+//	private String codigoInstituicao;
 
-	private String codigoInstituicao;
+	public String getNome() { return nome; }
 
+	public void setNome(String nome) { this.nome = nome; }
 
-	public String getNome() {
-		return nome;
-	}
+	public String getProfessor() { return professor; }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+//	public void setProfessor(String professor) { this.professor = professor; }
 
-	public String getProfessor() {
-		return professor;
-	}
+	public int getAnoDisciplina() { return anoDisciplina; }
 
-	public void setProfessor(String professor) {
-		this.professor = professor;
-	}
+//	public void setAnoDisciplina(int anoDisciplina) {
+//		this.anoDisciplina = anoDisciplina;
+//	}
 
-	public int getAnoDisciplina() {
-		return anoDisciplina;
-	}
+//	public String getCodigoInstituicao() { return codigoInstituicao; }
 
-	public void setAnoDisciplina(int anoDisciplina) {
-		this.anoDisciplina = anoDisciplina;
-	}
+//	public void setCodigoInstituicao(String codigoInstituicao) {
+//		this.codigoInstituicao = codigoInstituicao;
+//	}
 
-	public String getCodigoInstituicao() {
-		return codigoInstituicao;
-	}
+	public Long getId() { return id; }
 
-	public void setCodigoInstituicao(String codigoInstituicao) {
-		this.codigoInstituicao = codigoInstituicao;
-	}
+	public void setId(Long id) { this.id = id; }
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
+//	public String getDescricao() { return descricao; }
+//
+//	public void setDescricao(String descricao) { this.descricao = descricao; }
 
 }

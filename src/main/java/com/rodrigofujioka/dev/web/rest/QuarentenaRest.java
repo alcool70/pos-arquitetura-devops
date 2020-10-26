@@ -3,6 +3,7 @@ package com.rodrigofujioka.dev.web.rest;
 import com.rodrigofujioka.dev.web.domain.Quarentena;
 import com.rodrigofujioka.dev.web.service.QuarentenaService;
 import com.rodrigofujioka.dev.web.service.dto.QuarentenaNomeCidadeDTO;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -42,14 +43,11 @@ public class QuarentenaRest {
 	@GetMapping("/quarentena/{id}")
 	public ResponseEntity<Quarentena> getQuarentenaById(@PathVariable Long id) {
 		try {
-
 			return ResponseEntity.ok(quarentenaService.getQuarentenaById(id));
-
 		} catch (Exception e) {
-			// FIXME INCLUIR LOGS
+			LoggerFactory.getLogger(this.getClass()).error("not found");
 			return ResponseEntity.notFound().build();
 		}
-
 	}
 
 	@GetMapping("/quarentena/nome/cidade/{id}")
@@ -57,22 +55,20 @@ public class QuarentenaRest {
 		try {
 			return ResponseEntity.ok(quarentenaService.getQuarentenaNomeCidadeById(id));
 		} catch (Exception e) {
-			// FIXME INCLUIR LOGS
+			LoggerFactory.getLogger(this.getClass()).error("not found");
 			return ResponseEntity.notFound().build();
 		}
-
 	}
-
 
 	@DeleteMapping("/quarentena/{id}")
 	public ResponseEntity<Quarentena> deleteById(@PathVariable Long id) {
 		try {
 			quarentenaService.deleteQuarentenaById(id);
+			return ResponseEntity.ok().build();
 		} catch (Exception e) {
-			// FIXME INCLUIR LOGS
+			LoggerFactory.getLogger(this.getClass()).error("not found");
 			return ResponseEntity.notFound().build();
 		}
-		return ResponseEntity.ok().build();
 	}
 
 }

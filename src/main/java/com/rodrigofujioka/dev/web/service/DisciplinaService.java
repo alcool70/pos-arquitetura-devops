@@ -41,17 +41,21 @@ public class DisciplinaService {
 		Optional<Disciplina> disciplina = disciplinaRepository.findById(id);
 		if (disciplina.isPresent())
 			throw new NotFoundException("Disciplina não localizada");
-
-		return new DisciplinaNomeProfessorDTO(disciplina.get());
-
+		else
+			return new DisciplinaNomeProfessorDTO(disciplina.orElse(new Disciplina()));
 	}
 
 	public Disciplina salvar(Disciplina disciplina) {
 		return disciplinaRepository.save(disciplina);
 	}
 
-	public Disciplina consultaPorId(Long id) {
-		return disciplinaRepository.findById(id).get();
+	public Disciplina consultaPorId(Long id) throws NotFoundException {
+		Optional<Disciplina> disciplina = disciplinaRepository.findById(id);
+
+		if (disciplina.isPresent())
+			throw new NotFoundException("Disciplina não localizada");
+		else
+			return disciplina.orElse(new Disciplina());
 	}
 
 	public void deletePorId(Long id) {

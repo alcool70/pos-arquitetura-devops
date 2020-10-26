@@ -12,21 +12,13 @@ public class QuarentenaNomeCidadeDTO {
 		setCidade(quarentena.getCidade());
 	}
 
-	public String getNome() {
-		return nome;
-	}
+	public String getNome() { return nome; }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	public void setNome(String nome) { this.nome = nome; }
 
-	public String getCidade() {
-		return cidade;
-	}
+	public String getCidade() { return cidade; }
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+	public void setCidade(String cidade) { this.cidade = cidade; }
 	
 	
 

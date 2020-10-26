@@ -5,6 +5,7 @@ import com.rodrigofujioka.dev.web.service.DisciplinaService;
 import com.rodrigofujioka.dev.web.service.dto.DisciplinaBuscaAnoDTO;
 import com.rodrigofujioka.dev.web.service.dto.DisciplinaNomeProfessorDTO;
 import javassist.NotFoundException;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,8 +42,7 @@ public class DisciplinaRest {
 			DisciplinaNomeProfessorDTO disciplinaNomeProfessorDTO = disciplinaService.getDisciplinaPorId(id);
 			return ResponseEntity.ok(disciplinaNomeProfessorDTO);
 		} catch (NotFoundException e) {
-			//FIXME Incluid LOGS AQUI
-			e.printStackTrace();
+			LoggerFactory.getLogger(this.getClass()).error("not found");
 			return ResponseEntity.notFound().build();
 		}
 
@@ -55,8 +55,13 @@ public class DisciplinaRest {
 
 
 	@GetMapping("/disciplina/{id}")
-	public ResponseEntity<Disciplina> consultaPorId(@PathVariable Long id) {
-		return ResponseEntity.ok(disciplinaService.consultaPorId(id));
+	public ResponseEntity<Disciplina> consultaPorId(@PathVariable Long id){
+		try {
+			return ResponseEntity.ok(disciplinaService.consultaPorId(id));
+		} catch (Exception e) {
+			LoggerFactory.getLogger(this.getClass()).error("not found");
+			return ResponseEntity.badRequest().build();
+		}
 	}
 
 	@GetMapping("/disciplina")
@@ -70,8 +75,8 @@ public class DisciplinaRest {
 			disciplinaService.deletePorId(id);
 			return ResponseEntity.ok().build();
 		} catch (Exception e) {
+			LoggerFactory.getLogger(this.getClass()).error("bad request");
 			return ResponseEntity.badRequest().build();
 		}
-
 	}
 }
