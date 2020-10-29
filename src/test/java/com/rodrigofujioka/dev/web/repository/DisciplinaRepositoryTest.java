@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -40,6 +41,33 @@ public class DisciplinaRepositoryTest {
 
 		// then
 		assertThat(found.getNome(), equalTo(portugues.getNome()));
+	}
+
+	@Test
+	public void whenFindByProfessorMila_thenReturnDisciplina() {
+		// given
+		Disciplina ginastica1 = new Disciplina("Bases Fisiologicas", "Mila");
+		Disciplina ginastica2 = new Disciplina("Educaçao Fisica", "Mila");
+		Disciplina anatomia = new Disciplina("Anatomia Humana", "Mila");
+
+		entityManager.persist(ginastica1);
+		entityManager.persist(ginastica2);
+		entityManager.persist(anatomia);
+		entityManager.flush();
+
+		// when
+		List<Disciplina> disciplinas =
+				disciplinaRepository
+						.findDisciplinaByProfessor("Mila");
+
+		Disciplina found =
+				disciplinas.stream()
+						.filter(dis -> dis.getProfessor().equalsIgnoreCase("Mila"))
+						.collect(Collectors.toList())
+						.get(0);//uma duvida aqui... e para poder validar todas as disciplimas?
+
+		// then
+		assertThat(found.getNome(), equalTo(ginastica1.getNome()));
 	}
 
 	@Test
