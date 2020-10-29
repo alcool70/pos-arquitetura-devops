@@ -35,7 +35,7 @@ para práticas na pós de engenharia e qualidade de software
 - *Sonar/Jenkins*: < link >
 - *DAS*: Este documento
 - *TDD_CLEAN_CODE*: Código corrigido, conforme sugestões do SONAR; cobertura
- de código por testes unitários atingido: CODECOV_TOKEN="2ad789bf-26c3-4693-9a45-5c888e091b32"  
+ de código por testes unitários atingido:   
 
 ### Preparação do ambiente
 
