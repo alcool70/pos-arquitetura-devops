@@ -1,6 +1,6 @@
 # UNIPE
 
-<img src="https://raw.githubusercontent.com/rodrigofujioka/poo/master/resources/javaspion.png" align="right" width="100px" />
+<img src="https://raw.githubusercontent.com/rodrigofujioka/poo/master/resources/javaspion.png" align="right" width="150px" />
 
 ## Pós-graduação em Engenharia e Qualidade de Software
 
@@ -13,7 +13,7 @@ Fork do repositório [rodrigofujioka/posengsoft](https://github.com/rodrigofujio
 - [Daniel Menezes](https://github.com/dsmenezes)
 - [Deam Gaudêncio](https://github.com/deamgaudencioramos)
 - [Diego Bandeira](https://github.com/rustnnes)
-- [Igor Mender](https://github.com/igormendes)
+- [Igor Mendes](https://github.com/igormendes)
 - [Victor Demétrio](https://github.com/victordemetrio)
 
 #### Tecnologias usadas:
