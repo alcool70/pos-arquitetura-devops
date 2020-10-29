@@ -16,21 +16,43 @@ public class Disciplina {
 	private String professor;
 	private int anoDisciplina;
 
-	public Disciplina(){}
+	public Disciplina() {
+	}
 
 	public Disciplina(String nome, String professor) {
 		this.nome = nome;
 		this.professor = professor;
 	}
 
-	public String getNome() { return nome; }
+	public String getNome() {
+		return nome;
+	}
 
-	public void setNome(String nome) { this.nome = nome; }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-	public int getAnoDisciplina() { return anoDisciplina; }
-	public String getProfessor() { return professor; }
+	public int getAnoDisciplina() {
+		return anoDisciplina;
+	}
 
-	public Long getId() { return id; }
+	public void setAnoDisciplina(int ano) {
+		this.anoDisciplina = ano;
+	}
 
-	public void setId(Long id) { this.id = id; }
+	public String getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(String prof) {
+		this.professor = prof;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
