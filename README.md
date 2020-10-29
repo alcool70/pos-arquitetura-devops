@@ -1,7 +1,6 @@
 # UNIPE
 
-<img src="https://raw.githubusercontent.com/rodrigofujioka/poo/master
-/resources/javaspion.png" align="right" width="100px" />
+<img src="https://raw.githubusercontent.com/rodrigofujioka/poo/master/resources/javaspion.png" align="right" width="100px" />
 
 ## Pós-graduação em Engenharia e Qualidade de Software
 
