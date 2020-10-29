@@ -1,13 +1,12 @@
 # UNIPE
 
+<img src="https://raw.githubusercontent.com/rodrigofujioka/poo/master/resources/javaspion.png" align="right" />
+
 ## Pós-graduação em Engenharia e Qualidade de Software
 
 ### Arquitetura de Software e DevOps 
 
-![Javaspion](https://raw.githubusercontent.com/rodrigofujioka/poo/master/resources/javaspion.png)
-
-Fork do repositório [rodrigofujioka/posengsoft](https://github.com/rodrigofujioka/posengsoft)
-para práticas na pós de engenharia e qualidade de software
+Fork do repositório [rodrigofujioka/posengsoft](https://github.com/rodrigofujioka/posengsoft) para práticas da pós-graduação de Engenharia e Qualidade de Software.
 
 #### Equipe Álcool70
 - [Artur Araújo](https://github.com/arturaraujo)
