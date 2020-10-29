@@ -46,7 +46,7 @@ Baseado nas imagens docker disponibilizadas ([rodrigofujioka/jenkins_sonar_postg
 - Acesso a UI: user e password `admin`
 
 ```bash
-host$ docker run -it -p9000:9000 rustnnes/sonar:v2
+host$ docker run -it -p9000:9000 rustnnes/sonar:v3
 
 container$ sudo su sonar
 container$ service sonar start
