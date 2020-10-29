@@ -13,6 +13,8 @@ public interface QuarentenaRepository extends JpaRepository<Quarentena, Long> {
 
 	List<Quarentena> findQuarentenaByUfAndCidade(String uf, String cidade);
 
+	List<Quarentena> findQuarentenaByCidade(String cidade);
+
 	List<Quarentena> findQuarentenaByNomePessoaAndUf(String nomePessoa, String uf);
 
 }

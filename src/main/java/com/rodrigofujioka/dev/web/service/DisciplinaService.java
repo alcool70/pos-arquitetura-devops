@@ -63,7 +63,7 @@ public class DisciplinaService {
 		if (disciplina != null) {
 			return disciplinaRepository.save(disciplina);
 		}
-		throw new RuntimeException("ID precisar ser informado");
+		throw new RuntimeException("ID precisa ser informado");
 	}
 
 }

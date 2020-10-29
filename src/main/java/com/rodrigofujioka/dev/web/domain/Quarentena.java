@@ -15,7 +15,14 @@ public class Quarentena {
 	private String uf;
 	private String cidade;
 	private int diasQuarentena;
-	
+
+	public Quarentena(){}
+
+	public Quarentena(String uf, String cidade) {
+		this.uf = uf;
+		this.cidade = cidade;
+	}
+
 	public Long getId() {
 		return id;
 	}
