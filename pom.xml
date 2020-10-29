@@ -19,6 +19,7 @@
     </description>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.projectKey>alcool70-posengsoft</sonar.projectKey>
         <sonar.host.url>
             http://ip172-18-0-57-bud4kl9qckh000deefm0-9000.direct.labs.play-with-docker.com
@@ -63,6 +64,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -97,6 +103,16 @@
                                         </limit>
                                     </limits>
                                 </rule>
+                                <rule>
+                                    <element>BUNDLE</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>COMPLEXITY</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.60</minimum>
+                                        </limit>
+                                    </limits>
+                                </rule>
                             </rules>
                         </configuration>
                     </execution>
@@ -107,7 +123,8 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>prepare-package</phase>
+<!--                        <phase>prepare-package</phase>-->
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
