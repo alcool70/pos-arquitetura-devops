@@ -30,7 +30,8 @@ class DisciplinaTest {
 	@Test
 	void getProfessor() {
 		Disciplina d = new Disciplina("Portugues", "Salomao");
-		assertThat(d.getProfessor(), equalTo("Salomao"));
+		d.setProfessor("Raimundo Nonato");
+		assertThat(d.getProfessor(), equalTo("Raimundo Nonato"));
 	}
 
 	@Test

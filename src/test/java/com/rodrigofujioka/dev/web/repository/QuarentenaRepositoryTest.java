@@ -1,6 +1,5 @@
 package com.rodrigofujioka.dev.web.repository;
 
-import com.rodrigofujioka.dev.web.domain.Disciplina;
 import com.rodrigofujioka.dev.web.domain.Quarentena;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +70,7 @@ public class QuarentenaRepositoryTest {
 
 		// then
 		assertThat(quarentenas.size(), equalTo(4));
-		assertThat(quarentenas.stream().map(x -> x.getUf()).collect(Collectors.toList()),
+		assertThat(quarentenas.stream().map(Quarentena::getUf).collect(Collectors.toList()),
 						containsInAnyOrder("MA","PB", "SC","PR"));
 	}
 
