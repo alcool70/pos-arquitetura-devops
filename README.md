@@ -1,106 +1,63 @@
-# Engenharia de Software Arquitetura de Software e DevOps 
+# UNIPE
 
-<a href="http://www.rodrigofujioka.com/" target="_blank"><img src="https://github.com/rodrigofujioka/javabasico/blob/master/resources/javaspion.png" alt="Javaspion" /></a>
-</p>
-     
-Código de exemplo para práticas na pós de engenharia e qualidade de software
+## Pós-graduação em Engenharia e Qualidade de Software
 
- Maven, JDK11, SpringBoot , SpringData. 
+### Arquitetura de Software e DevOps 
 
+![Javaspion](https://raw.githubusercontent.com/rodrigofujioka/poo/master/resources/javaspion.png)
 
-# Forma de enviar o projeto  
+Fork do repositório [rodrigofujioka/posengsoft](https://github.com/rodrigofujioka/posengsoft)
+para práticas na pós de engenharia e qualidade de software
 
-Titulo: [EngSoftANO]
+#### Equipe Álcool70
+- [Artur Araújo](https://github.com/arturaraujo)
+- [Daniel Menezes](https://github.com/dsmenezes)
+- [Deam Gaudêncio](https://github.com/deamgaudencioramos)
+- [Diego Bandeira](https://github.com/rustnnes)
+- [Igor Mender](https://github.com/igormendes)
+- [Victor Demétrio](https://github.com/victordemetrio)
 
-* [EngSoftANO Swagger] :  Link para baixar
-** Criar modelo com Swagger para o que foi solicitado em sala de aula. 
-
-* [EngSoftANO Mensageria] :  Link para baixar
-** Implementar projeto com utilização de Mensageria conforme exemplos em sala de aula ou no contexto da sua fábrica. 
-
-* [EngSoftANO Docker] :  Link para baixar
-** Criar imagem e publicar no dockerhub conforme conteúdo visto em sala de aula ou no contexto da sua fábrica. 
-
-* [EngSoftANO SONARJENKINS] :  Link para baixar
-** Preparar cenário utilizando Jenkins e Sonar no contexto do que foi visto em sala de aula. Pode usar docker-composer
-
-* [EngSoftANO DAS] :  Link para baixar 
-** Documento de Arquitetura de Software, no contexto da sua fábrica de software
-
-* [EngSoftANO TDD_CLEAN_CODE] :  Link para baixar 
-** Corrigir o código deste repositório, conforme as correções apontados pelo SONAR, Cobertura de código Testes Unitários deve ser superior a 70% 
-
-## Ex: O modelo exato e para qual e-mail foi enviado para o representante de turma ou para o grupo da turma.
- 
-
-
-### RODAR SONAR
-docker run --name sonar -it -p9000:9000 rodrigofujioka/jenkins_sonar_postgres
-
-sudo su sonar
-
-service sonar start
-
-### RODAR JENKINS
-docker run --name jenkins -it -p8080:8080 -p50000:50000 rodrigofujioka/jenkins:ubuntu_sdk
-
-service jenkins start   
-
-fujioka
-
-fujioka
-
-
-* Meu instagram: [@rodrigofujioka](https://www.instagram.com/rodrigofujioka) 
-* Meu facebook: [@rodrigofujioka](https://www.facebook.com/rodrigofujioka)
-
-Repositório Java Básico : https://github.com/rodrigofujioka/poo
-Repositório Programação Web: https://github.com/rodrigofujioka/papw 
-
-- [Intellij Idea](https://www.jetbrains.com/idea/) 
+#### Tecnologias usadas:
+- Maven
+- [JDK 11](https://jdk.java.net/java-se-ri/11)
 - [Spring Tools](https://spring.io/tools)  
-- [JDK](https://jdk.java.net/java-se-ri/11)
+    - Spring Boot
+    - Spring Data
+- SonarQube
+- JaCoCo
+- IDE: [Intellij Idea](https://www.jetbrains.com/idea/) 
 
-- ```Outras ferramentas como NetBeans ou VS Code podem ser utilizadas)```
+#### Entregas  
 
-## Cursos recomendados
+- *Swagger*: < link > 
+- *Mensageria*: < link > 
+- *Docker*: < link > 
+- *Sonar/Jenkins*: < link >
+- *DAS*: Este documento
+- *TDD_CLEAN_CODE*: Código corrigido, conforme sugestões do SONAR; cobertura
+ de código por testes unitários atingido: CODECOV_TOKEN="2ad789bf-26c3-4693-9a45-5c888e091b32"  
 
-#### GIT
-- [GIT para iniciantes](https://www.udemy.com/git-e-github-para-iniciantes/)
-- [GIT - DevMedia](https://www.devmedia.com.br/guia/git-e-github/37585)
+### Preparação do ambiente
 
-#### Java
-- [DevMedia - Java](https://www.devmedia.com.br/guia/programador-java/37809)
-- [Loiane - Java](https://loiane.training/curso/java-basico)
+Baseado nas imagens docker disponibilizadas ([rodrigofujioka/jenkins_sonar_postgres](https://hub.docker.com/r/rodrigofujioka/jenkins_sonar_postgres) e [rodrigofujioka/jenkins](https://hub.docker.com/r/rodrigofujioka/jenkins)), foram criadas imagens com as configurações necessárias
+ já salvas, de forma a agilizar o ambiente de CI. 
 
+#### SONAR
+- Necessário configurar o endereço do Sonar no POM.xml no repo
+- Acesso a UI: user e password `admin`
 
-## Preparação do ambiente
+```bash
+host$ docker run -it -p9000:9000 rustnnes/sonar:v2
 
+container$ sudo su sonar
+container$ service sonar start
+```
 
-1 - Configurar o ambiente Java, na ordem informada. 
+#### JENKINS
 
-1.0 - Você pode fazer todas as configurações com o [SDKMAN](https://sdkman.io/) .
+- Acesso a UI: user e password: `fujioka`
 
-<p align="center">	
-<a href="https://sdkman.io/" target="_blank"><img src="https://sdkman.io/assets/img/sdk-man-small-pattern.svg" alt="SDK MAN" width="350" height="350"/></a>	
-</p>
-
-1.1 - Baixar e instalar o JDK  -> 
-         [Oracle JDK](https://www.oracle.com/technetwork/pt/java/javase/downloads/index.html)
-         [Open JDK](https://openjdk.java.net/install/index.html)         
-
-1.2 - Baixar e extrair binarios do Maven -> 
-         [Maven](https://maven.apache.org/download.cgi)
-         
-1.3 - Configurar Classpath (Java e Maven) -> 
-
-
-
-1.4 - Baixar e instalar ferramentas de desenvolvimento.
-
-1.4.1 - Aulas ministradas com [Intellij Idea](https://www.jetbrains.com/idea/) Idea ou [Spring Tools](https://spring.io/tools)  .
-
-1.4.2 - Pode ser utilizada qualquer outra ferramenta, no entanto, dúvidas sobre 
-utilização apenas sobre as IDE's do itens #1.4.1
-
-1.5 - Criar conta no github 
+```bash
+host$ docker run -it -p8080:8080 -p50000:50000 rustnnes/jenkins:v3
+container$ service jenkins start   
+```
