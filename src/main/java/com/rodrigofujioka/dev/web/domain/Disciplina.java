@@ -16,12 +16,17 @@ public class Disciplina {
 	private String professor;
 	private int anoDisciplina;
 
-	public Disciplina() {
-	}
+	public Disciplina() {}
 
 	public Disciplina(String nome, String professor) {
 		this.nome = nome;
 		this.professor = professor;
+	}
+
+	public Disciplina(String nome, String professor, int ano) {
+		this.nome = nome;
+		this.professor = professor;
+		this.anoDisciplina = ano;
 	}
 
 	public String getNome() {
@@ -36,17 +41,13 @@ public class Disciplina {
 		return anoDisciplina;
 	}
 
-	public void setAnoDisciplina(int ano) {
-		this.anoDisciplina = ano;
-	}
+	public void setAnoDisciplina(int ano) { this.anoDisciplina = ano; }
 
 	public String getProfessor() {
 		return professor;
 	}
 
-	public void setProfessor(String prof) {
-		this.professor = prof;
-	}
+	public void setProfessor(String prof) { this.professor = prof; }
 
 	public Long getId() {
 		return id;
