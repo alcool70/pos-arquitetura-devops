@@ -22,7 +22,8 @@ public class DisciplinaRest {
 	private DisciplinaService disciplinaService;
 
 	@PostMapping("/disciplina")
-	public ResponseEntity<Disciplina> salvar(@RequestBody @Valid DisciplinaDTO disciplinaDTO) {
+	public ResponseEntity<Disciplina> salvar(
+					@RequestBody @Valid DisciplinaDTO disciplinaDTO) {
 		Disciplina disciplina = new Disciplina();
 
 		disciplina.setId(disciplinaDTO.getId());
@@ -31,20 +32,26 @@ public class DisciplinaRest {
 	}
 
 	@GetMapping("/disciplina/busca/{anoInicial}/{anoFinal}")
-	public ResponseEntity<List<Disciplina>> buscaDisciplinaEntreAnosPath(@PathVariable int anoInicial, @PathVariable int anoFinal) {
+	public ResponseEntity<List<Disciplina>> buscaDisciplinaEntreAnosPath(
+					@PathVariable int anoInicial, @PathVariable int anoFinal) {
 
-		return ResponseEntity.ok(disciplinaService.getDisciplinaEntreAnos(anoFinal, anoFinal));
+		return ResponseEntity
+						.ok(disciplinaService.getDisciplinaEntreAnos(anoFinal, anoFinal));
 	}
 
 	@GetMapping("/disciplina/busca")
-	public ResponseEntity<List<Disciplina>> buscaDisciplinaEntreAnos(@RequestBody @Valid DisciplinaBuscaAnoDTO dtoBusca) {
-		return ResponseEntity.ok(disciplinaService.getDisciplinaEntreAnos(dtoBusca));
+	public ResponseEntity<List<Disciplina>> buscaDisciplinaEntreAnos(
+					@RequestBody @Valid DisciplinaBuscaAnoDTO dtoBusca) {
+		return ResponseEntity
+						.ok(disciplinaService.getDisciplinaEntreAnos(dtoBusca));
 	}
 
 
-	public ResponseEntity<DisciplinaNomeProfessorDTO> getDisciplinaProfessor(@PathVariable Long id) {
+	public ResponseEntity<DisciplinaNomeProfessorDTO> getDisciplinaProfessor(
+					@PathVariable Long id) {
 		try {
-			DisciplinaNomeProfessorDTO disciplinaNomeProfessorDTO = disciplinaService.getDisciplinaPorId(id);
+			DisciplinaNomeProfessorDTO disciplinaNomeProfessorDTO = disciplinaService
+							.getDisciplinaPorId(id);
 			return ResponseEntity.ok(disciplinaNomeProfessorDTO);
 		} catch (NotFoundException e) {
 			LoggerFactory.getLogger(this.getClass()).error("not found");
@@ -54,7 +61,8 @@ public class DisciplinaRest {
 	}
 
 	@PutMapping("/disciplina")
-	public ResponseEntity<Disciplina> update(@RequestBody @Valid DisciplinaDTO disciplinaDTO) {
+	public ResponseEntity<Disciplina> update(
+					@RequestBody @Valid DisciplinaDTO disciplinaDTO) {
 		Disciplina disciplina = new Disciplina();
 
 		disciplina.setId(disciplinaDTO.getId());
@@ -64,7 +72,7 @@ public class DisciplinaRest {
 
 
 	@GetMapping("/disciplina/{id}")
-	public ResponseEntity<Disciplina> consultaPorId(@PathVariable Long id){
+	public ResponseEntity<Disciplina> consultaPorId(@PathVariable Long id) {
 		try {
 			return ResponseEntity.ok(disciplinaService.consultaPorId(id));
 		} catch (Exception e) {
