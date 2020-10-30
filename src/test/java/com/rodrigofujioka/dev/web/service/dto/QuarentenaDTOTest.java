@@ -1,12 +1,12 @@
 package com.rodrigofujioka.dev.web.service.dto;
 
-import com.rodrigofujioka.dev.web.domain.Produto;
 import com.rodrigofujioka.dev.web.domain.Quarentena;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.typeCompatibleWith;
 
 
 class QuarentenaDTOTest {

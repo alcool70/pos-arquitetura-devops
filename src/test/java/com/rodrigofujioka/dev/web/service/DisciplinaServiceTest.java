@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @Transactional
 class DisciplinaServiceTest {
 
-	List<Disciplina> disciplinas = Arrays.asList(
+	final List<Disciplina> disciplinas = Arrays.asList(
 					new Disciplina("matematica", "Suely"),
 					new Disciplina("portugues", "Franciane"),
 					new Disciplina("fisica", "João")
@@ -44,7 +44,7 @@ class DisciplinaServiceTest {
 	}
 
 	@Test
-	void testDisciplinaWhenObjReturned() throws NotFoundException {
+	void testDisciplinaWhenObjReturned(){
 		entityManager.persist(
 						disciplinas
 										.stream()
@@ -77,7 +77,7 @@ class DisciplinaServiceTest {
 	}
 
 	@Test
-	void testConsultaByIdWhenNoObjReturned() throws NotFoundException {
+	void testConsultaByIdWhenNoObjReturned() {
 		assertThrows(NotFoundException.class, () -> {
 			Disciplina d = service.consultaPorId(1L);
 		});
@@ -102,7 +102,7 @@ class DisciplinaServiceTest {
 	}
 
 	@Test
-	void testListDisciplinas() throws NotFoundException {
+	void testListDisciplinas() {
 		disciplinas.forEach(d -> entityManager.persist(d));
 		entityManager.flush();
 
