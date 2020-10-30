@@ -14,6 +14,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest(
@@ -45,10 +46,11 @@ public class DisciplinaRepositoryTest {
 
 	@Test
 	public void whenFindByProfessorMila_thenReturnDisciplina() {
+		String prof = "Mila";
 		// given
-		Disciplina ginastica1 = new Disciplina("Bases Fisiologicas", "Mila");
-		Disciplina ginastica2 = new Disciplina("Educaçao Fisica", "Mila");
-		Disciplina anatomia = new Disciplina("Anatomia Humana", "Mila");
+		Disciplina ginastica1 = new Disciplina("Bases Fisiologicas", prof);
+		Disciplina ginastica2 = new Disciplina("Educaçao Fisica", prof);
+		Disciplina anatomia = new Disciplina("Anatomia Humana", prof);
 
 		entityManager.persist(ginastica1);
 		entityManager.persist(ginastica2);
@@ -58,16 +60,12 @@ public class DisciplinaRepositoryTest {
 		// when
 		List<Disciplina> disciplinas =
 				disciplinaRepository
-						.findDisciplinaByProfessor("Mila");
-
-		Disciplina found =
-				disciplinas.stream()
-						.filter(dis -> dis.getProfessor().equalsIgnoreCase("Mila"))
-						.collect(Collectors.toList())
-						.get(0);//uma duvida aqui... e para poder validar todas as disciplimas?
+						.findDisciplinaByProfessor(prof);
 
 		// then
-		assertThat(found.getNome(), equalTo(ginastica1.getNome()));
+		assertThat(disciplinas.size(), equalTo(3));
+		assertThat(disciplinas.stream().map(d -> d.getProfessor()).collect(Collectors.toList()),
+				containsInAnyOrder(prof));
 	}
 
 	@Test
