@@ -69,6 +69,31 @@ public class DisciplinaRepositoryTest {
 	}
 
 	@Test
+	public void whenFindByAnoDisciplinaBetween_thenReturnDuasDisciplina() {
+		//findDisciplinaByAnoDisciplinaBetween
+		String prof = "Bozena";
+		// given
+		Disciplina ginastica1 = new Disciplina("Bases Fisiologicas", prof, 2020);
+		Disciplina ginastica2 = new Disciplina("Educaçao Fisica", prof, 2019);
+		Disciplina anatomia = new Disciplina("Anatomia Humana", prof, 2018);
+
+		entityManager.persist(ginastica1);
+		entityManager.persist(ginastica2);
+		entityManager.persist(anatomia);
+		entityManager.flush();
+
+		// when
+		List<Disciplina> disciplinas =
+				disciplinaRepository
+						.findDisciplinaByAnoDisciplinaBetween(1991,2019);
+
+		// then
+		assertThat(disciplinas.size(), equalTo(2));
+		//assertThat(disciplinas.stream().map(d -> d.getProfessor()).collect(Collectors.toList()),
+		//		containsInAnyOrder(prof));
+	}
+
+	@Test
 	public void whenFindByNomeAndProfessor_thenReturnDisciplina() {
 		// given
 		Disciplina matematica1 = new Disciplina("geometria", "Suely");
