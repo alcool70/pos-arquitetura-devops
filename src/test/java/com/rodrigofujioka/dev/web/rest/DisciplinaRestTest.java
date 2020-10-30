@@ -1,7 +1,6 @@
 package com.rodrigofujioka.dev.web.rest;
 
 import com.rodrigofujioka.dev.web.domain.Disciplina;
-import com.rodrigofujioka.dev.web.repository.DisciplinaRepository;
 import com.rodrigofujioka.dev.web.service.DisciplinaService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,19 +34,11 @@ class DisciplinaRestTest {
 	@MockBean
 	private DisciplinaService disciplinaService;
 
-	@MockBean
-	private DisciplinaRepository disciplinaRepository;
+//	@MockBean
+//	private DisciplinaRepository disciplinaRepository;
 
 	@Autowired
 	private MockMvc mvc;
-
-	@BeforeEach
-	void setUp() {
-	}
-
-	@AfterEach
-	void tearDown() {
-	}
 
 	@Test
 	void testBuscaDisciplinaPorAno() throws Exception {
@@ -63,14 +54,18 @@ class DisciplinaRestTest {
 
 	@Test
 	void testBuscaDisciplinaPorAno_andReturnObjs() throws Exception {
-		disciplinas.forEach(d -> disciplinaRepository.saveAndFlush(d));
+//		disciplinas.forEach(d -> disciplinaRepository.saveAndFlush(d));
+		disciplinas.forEach(d -> disciplinaService.salvar(d));
 
 		ResultActions resultActions = mvc.perform(
 						get("/api/disciplina/busca/{anoInicial}/{anoFinal}",
 										2007, 2020)
 										.contentType(MediaType.APPLICATION_JSON))
 						.andDo(result -> {
-							System.out.println(">>> " + result.getResponse().getContentAsString());
+							System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n" +
+											result.getResponse().getContentAsString() +
+											"\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+							);
 						})
 						.andExpect(status().isOk())
 						.andExpect(content()
