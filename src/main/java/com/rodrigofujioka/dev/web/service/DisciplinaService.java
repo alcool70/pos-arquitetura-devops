@@ -32,7 +32,7 @@ public class DisciplinaService {
 
 	public DisciplinaNomeProfessorDTO getDisciplinaPorId(Long id) throws NotFoundException {
 		Optional<Disciplina> disciplina = disciplinaRepository.findById(id);
-		if (disciplina.isPresent())
+		if (disciplina.isEmpty())
 			throw new NotFoundException("Disciplina não localizada");
 		else
 			return new DisciplinaNomeProfessorDTO(disciplina.orElse(new Disciplina()));
@@ -45,7 +45,7 @@ public class DisciplinaService {
 	public Disciplina consultaPorId(Long id) throws NotFoundException {
 		Optional<Disciplina> disciplina = disciplinaRepository.findById(id);
 
-		if (disciplina.isPresent())
+		if (disciplina.isEmpty())
 			throw new NotFoundException("Disciplina não localizada");
 		else
 			return disciplina.orElse(new Disciplina());

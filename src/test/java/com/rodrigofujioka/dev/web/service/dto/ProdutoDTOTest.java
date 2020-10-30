@@ -38,7 +38,7 @@ class ProdutoDTOTest {
 		dto.setNome("iPhone");
 
 		assertThat(dto.getClass(), typeCompatibleWith(ProdutoDTO.class));
-		assertThat(dto.getId(), equalTo(1L));
+		assertThat(dto.getId(), equalTo(2L));
 		assertThat(dto.getNome(), startsWithIgnoringCase("iphone"));
 		assertThat(dto.getMarca(), equalTo("Apple"));
 	}
