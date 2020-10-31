@@ -23,11 +23,14 @@ public class DisciplinaService {
 	}
 
 	public List<Disciplina> getDisciplinaEntreAnos(DisciplinaBuscaAnoDTO dto) {
-		return disciplinaRepository.findByAnoDisciplinaBetween(dto.getAnoInicial(), dto.getAnoFinal());
+		return disciplinaRepository
+						.findDisciplinaByAnoDisciplinaBetween(
+										dto.getAnoInicial(), dto.getAnoFinal());
 	}
 
 	public List<Disciplina> getDisciplinaEntreAnos(int anoInicial, int anoFinal) {
-		return disciplinaRepository.findByAnoDisciplinaBetween(anoInicial, anoFinal);
+		return disciplinaRepository
+						.findDisciplinaByAnoDisciplinaBetween(anoInicial, anoFinal);
 	}
 
 	public DisciplinaNomeProfessorDTO getDisciplinaPorId(Long id) throws NotFoundException {

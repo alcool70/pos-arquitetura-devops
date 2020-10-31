@@ -1,0 +1,43 @@
+#Server port
+server:
+  port: 8080
+
+# H2
+spring:
+  h2:
+    console:
+      enabled: true
+      path: 'h2'
+# Datasource
+  datasource:
+    platform: h2
+    url: 'jdbc:h2:mem:test'
+    username: sa
+    password: ''
+    driver-class-name: 'org.h2.Driver'
+# Hibernate ddl auto (create, create-drop, validate, update)
+  jpa:
+    hibernate:
+      ddl-auto: 'create-drop'
+
+# JPA specific configs
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql: true
+        dialect: 'org.hibernate.dialect.H2Dialect'
+        id:
+          new_generator_mappings: false
+        search:
+          autoregister_listeners: false
+        bytecode:
+          use_reflection_optimizer: false
+
+# Enable logging
+logging:
+  level:
+    org.hibernate.SQL: INFO
+# Enable logging for HikariCP to verify that it is used
+    org.hibernate.type.descriptor.sql.BasicBinder: INFO
+    org.springframework.web: DEBUG

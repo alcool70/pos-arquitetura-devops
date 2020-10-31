@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
+import javax.print.attribute.standard.Media;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,9 +35,6 @@ class DisciplinaRestTest {
 	@MockBean
 	private DisciplinaService disciplinaService;
 
-//	@MockBean
-//	private DisciplinaRepository disciplinaRepository;
-
 	@Autowired
 	private MockMvc mvc;
 
@@ -45,22 +43,18 @@ class DisciplinaRestTest {
 		ResultActions resultActions = mvc.perform(
 						get("/api/disciplina/busca/{anoInicial}/{anoFinal}",
 										2007, 2020)
-										.contentType(MediaType.APPLICATION_JSON))
-						.andExpect(status().isOk())
-						.andExpect(content()
-										.contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-						.andExpect(jsonPath("$").isEmpty());
+		)
+						.andExpect(status().isNoContent());
 	}
 
 	@Test
 	void testBuscaDisciplinaPorAno_andReturnObjs() throws Exception {
-//		disciplinas.forEach(d -> disciplinaRepository.saveAndFlush(d));
 		disciplinas.forEach(d -> disciplinaService.salvar(d));
 
 		ResultActions resultActions = mvc.perform(
 						get("/api/disciplina/busca/{anoInicial}/{anoFinal}",
 										2007, 2020)
-										.contentType(MediaType.APPLICATION_JSON))
+		)
 						.andDo(result -> {
 							System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n" +
 											result.getResponse().getContentAsString() +

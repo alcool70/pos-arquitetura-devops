@@ -28,24 +28,31 @@ public class DisciplinaRest {
 
 		disciplina.setId(disciplinaDTO.getId());
 		disciplina.setNome(disciplinaDTO.getNome());
+		disciplina.setProfessor(disciplinaDTO.getProfessor());
+		disciplina.setAnoDisciplina(disciplinaDTO.getAnoDisciplina());
 		return ResponseEntity.ok(disciplinaService.salvar(disciplina));
 	}
 
 	@GetMapping("/disciplina/busca/{anoInicial}/{anoFinal}")
+	@ResponseBody
 	public ResponseEntity<List<Disciplina>> buscaDisciplinaEntreAnosPath(
 					@PathVariable int anoInicial, @PathVariable int anoFinal) {
 
-		return ResponseEntity
-						.ok(disciplinaService.getDisciplinaEntreAnos(anoFinal, anoFinal));
+		List<Disciplina> disciplinas =
+						disciplinaService.getDisciplinaEntreAnos(anoInicial, anoFinal);
+
+		return disciplinas.size() == 0 ?
+						ResponseEntity.noContent().build() :
+						ResponseEntity.ok(disciplinas);
 	}
 
-	@GetMapping("/disciplina/busca")
+	@PostMapping("/disciplina/busca")
+	@ResponseBody
 	public ResponseEntity<List<Disciplina>> buscaDisciplinaEntreAnos(
 					@RequestBody @Valid DisciplinaBuscaAnoDTO dtoBusca) {
 		return ResponseEntity
 						.ok(disciplinaService.getDisciplinaEntreAnos(dtoBusca));
 	}
-
 
 	public ResponseEntity<DisciplinaNomeProfessorDTO> getDisciplinaProfessor(
 					@PathVariable Long id) {
@@ -61,6 +68,7 @@ public class DisciplinaRest {
 	}
 
 	@PutMapping("/disciplina")
+	@ResponseBody
 	public ResponseEntity<Disciplina> update(
 					@RequestBody @Valid DisciplinaDTO disciplinaDTO) {
 		Disciplina disciplina = new Disciplina();
@@ -72,6 +80,7 @@ public class DisciplinaRest {
 
 
 	@GetMapping("/disciplina/{id}")
+	@ResponseBody
 	public ResponseEntity<Disciplina> consultaPorId(@PathVariable Long id) {
 		try {
 			return ResponseEntity.ok(disciplinaService.consultaPorId(id));
@@ -82,6 +91,7 @@ public class DisciplinaRest {
 	}
 
 	@GetMapping("/disciplina")
+	@ResponseBody
 	public ResponseEntity<List<Disciplina>> listar() {
 		return ResponseEntity.ok(disciplinaService.listar());
 	}
