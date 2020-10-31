@@ -46,6 +46,59 @@ public class QuarentenaRepositoryTest {
 	}
 
 	@Test
+	public void whenFindByUfAndCidade_thenReturnQuarentenaPE() {
+		//findQuarentenaByUfAndCidade
+		String uf = "PE";
+		String cidade = "Recife";
+		// given
+		Quarentena quarentena = new Quarentena();
+		quarentena.setUf(uf);
+		quarentena.setCidade(cidade);
+
+		entityManager.persist(quarentena);
+		entityManager.flush();
+
+		// when
+		Quarentena found =
+				quarentenaRepository.findQuarentenaByUfAndCidade(uf,cidade).get(0);
+
+		// then
+		assertThat(found.getUf(), equalTo(quarentena.getUf()));
+	}
+
+	@Test
+	public void whenFindByNomePessoaAndUf_thenReturnUmaQuarentenaPRBozena() {
+		//findQuarentenaByNomePessoaAndUf
+		String cidade = "Pato Branco";
+
+		// given
+		Quarentena quarentena1 = new Quarentena("PR", cidade, "Bozena");
+		Quarentena quarentena2 = new Quarentena("PE", cidade, "Bozena");
+		Quarentena quarentena3 = new Quarentena("PR", cidade);
+		Quarentena quarentena4 = new Quarentena("RN", cidade);
+		Quarentena quarentena5 = new Quarentena("SP", "Sao Paulo");
+
+		entityManager.persist(quarentena1);
+		entityManager.persist(quarentena2);
+		entityManager.persist(quarentena3);
+		entityManager.persist(quarentena4);
+		entityManager.persist(quarentena5);
+		entityManager.flush();
+
+		// when
+		List<Quarentena> quarentenas =
+				quarentenaRepository
+						.findQuarentenaByNomePessoaAndUf("Bozena","PR");
+
+		// then
+		assertThat(quarentenas.size(), equalTo(1));
+		assertThat(quarentenas.stream().map(x -> x.getUf()).collect(Collectors.toList()),
+				containsInAnyOrder("PR"));
+		assertThat(quarentenas.stream().map(x -> x.getNomePessoa()).collect(Collectors.toList()),
+				containsInAnyOrder("Bozena"));
+	}
+
+	@Test
 	public void whenFindByCidade_thenReturnQuatroQuarentenas() {
 
 		String cidade = "Santa Helena";

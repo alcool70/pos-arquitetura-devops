@@ -22,6 +22,11 @@ public class Disciplina {
 		this.nome = nome;
 		this.professor = professor;
 	}
+	public Disciplina(String nome, String professor, int ano) {
+		this.nome = nome;
+		this.professor = professor;
+		this.anoDisciplina = ano;
+	}
 
 	public Disciplina(String nome, String professor, int ano) {
 		this.nome = nome;

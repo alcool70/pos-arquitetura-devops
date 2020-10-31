@@ -10,9 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest(
@@ -40,6 +42,55 @@ public class DisciplinaRepositoryTest {
 
 		// then
 		assertThat(found.getNome(), equalTo(portugues.getNome()));
+	}
+
+	@Test
+	public void whenFindByProfessorMila_thenReturnDisciplina() {
+		String prof = "Mila";
+		// given
+		Disciplina ginastica1 = new Disciplina("Bases Fisiologicas", prof);
+		Disciplina ginastica2 = new Disciplina("Educaçao Fisica", prof);
+		Disciplina anatomia = new Disciplina("Anatomia Humana", prof);
+
+		entityManager.persist(ginastica1);
+		entityManager.persist(ginastica2);
+		entityManager.persist(anatomia);
+		entityManager.flush();
+
+		// when
+		List<Disciplina> disciplinas =
+				disciplinaRepository
+						.findDisciplinaByProfessor(prof);
+
+		// then
+		assertThat(disciplinas.size(), equalTo(3));
+		//assertThat(disciplinas.stream().map(d -> d.getProfessor()).collect(Collectors.toList()),
+		//		containsInAnyOrder(prof));
+	}
+
+	@Test
+	public void whenFindByAnoDisciplinaBetween_thenReturnDuasDisciplina() {
+		//findDisciplinaByAnoDisciplinaBetween
+		String prof = "Bozena";
+		// given
+		Disciplina ginastica1 = new Disciplina("Bases Fisiologicas", prof, 2020);
+		Disciplina ginastica2 = new Disciplina("Educaçao Fisica", prof, 2019);
+		Disciplina anatomia = new Disciplina("Anatomia Humana", prof, 2018);
+
+		entityManager.persist(ginastica1);
+		entityManager.persist(ginastica2);
+		entityManager.persist(anatomia);
+		entityManager.flush();
+
+		// when
+		List<Disciplina> disciplinas =
+				disciplinaRepository
+						.findDisciplinaByAnoDisciplinaBetween(1991,2019);
+
+		// then
+		assertThat(disciplinas.size(), equalTo(2));
+		//assertThat(disciplinas.stream().map(d -> d.getProfessor()).collect(Collectors.toList()),
+		//		containsInAnyOrder(prof));
 	}
 
 	@Test

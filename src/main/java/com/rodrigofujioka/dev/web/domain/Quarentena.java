@@ -22,6 +22,11 @@ public class Quarentena {
 		this.uf = uf;
 		this.cidade = cidade;
 	}
+	public Quarentena(String uf, String cidade, String nomePessoa) {
+		this.uf = uf;
+		this.cidade = cidade;
+		this.nomePessoa = nomePessoa;
+	}
 
 	public Long getId() {
 		return id;
