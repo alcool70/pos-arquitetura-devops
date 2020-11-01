@@ -19,14 +19,19 @@ public class QuarentenaRest {
 	@Autowired
 	private QuarentenaService quarentenaService;
 
-	@GetMapping("/quarentena/{estado}")
-	public ResponseEntity<List<Quarentena>> getQuarentena(@PathVariable String estado) {
+	@GetMapping("/quarentena/estado/{estado}")
+	@ResponseBody
+	public ResponseEntity<List<Quarentena>> getQuarentena(
+					@PathVariable String estado) {
 		return ResponseEntity.ok(quarentenaService.getQuarentenaByUf(estado));
 	}
 
 	@PostMapping("/quarentena")
-	public ResponseEntity<Quarentena> salvar(@RequestBody @Valid QuarentenaDTO quarentenaDTO) {
+	@ResponseBody
+	public ResponseEntity<Quarentena> salvar(
+					@RequestBody @Valid QuarentenaDTO quarentenaDTO) {
 		Quarentena quarentena = new Quarentena();
+
 		quarentena.setCidade(quarentenaDTO.getCidade());
 		quarentena.setDiasQuarentena(quarentenaDTO.getDiasQuarentena());
 		quarentena.setId(quarentenaDTO.getId());
@@ -34,7 +39,7 @@ public class QuarentenaRest {
 		quarentena.setUf(quarentenaDTO.getUf());
 
 		Quarentena quarentenaSalva = quarentenaService.salvar(quarentena);
-		return ResponseEntity.ok().body(quarentenaSalva);
+		return ResponseEntity.ok(quarentenaSalva);
 	}
 
 	@GetMapping("/quarentena")
@@ -53,7 +58,8 @@ public class QuarentenaRest {
 	}
 
 	@GetMapping("/quarentena/nome/cidade/{id}")
-	public ResponseEntity<QuarentenaNomeCidadeDTO> getQuarentenaNomeCidadeById(@PathVariable Long id) {
+	public ResponseEntity<QuarentenaNomeCidadeDTO> getQuarentenaNomeCidadeById(
+					@PathVariable Long id) {
 		try {
 			return ResponseEntity.ok(quarentenaService.getQuarentenaNomeCidadeById(id));
 		} catch (Exception e) {
