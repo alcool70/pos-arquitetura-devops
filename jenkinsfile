@@ -1,17 +1,11 @@
 node {
     git url: 'https://github.com/alcool70/pos-arquitetura-devops.git', branch: 'master'
     dir('6-tdd_clean_code'){
-        stage('setup'){
-            echo 'Setup...'
-        }
-        stage('Build') {
-            sh 'ls -la'
-        }
         stage('Test') {
-            echo 'Testing...'
+            sh 'mvn clean test verify sonar:sonar'
         }
-        stage('Deploy') {
-            echo 'Deploying...'
+        stage('Report') {
+            echo 'To Be Implemented...'
         }
     }
 }
