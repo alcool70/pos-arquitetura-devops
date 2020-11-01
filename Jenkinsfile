@@ -27,12 +27,12 @@ node {
                     stage('Test') {
                         sh 'ENV=test mvn clean test verify sonar:sonar'
                     }
-                    stage('Report') {
+                    /* stage('Report') {
                         withCredentials([string(credentialsId: 'codecov', variable: 'CODECOV_TOKEN')]) {
-                            // echo "$CODECOV_TOKEN"
+                            echo "$CODECOV_TOKEN"
                             sh 'curl -s https://codecov.io/bash | bash'
                         }
-                    }
+                     */}
                 }
             }
         }
