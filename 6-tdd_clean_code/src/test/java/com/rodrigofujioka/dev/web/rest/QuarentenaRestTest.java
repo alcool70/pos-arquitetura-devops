@@ -3,6 +3,7 @@ package com.rodrigofujioka.dev.web.rest;
 import com.rodrigofujioka.dev.web.domain.Quarentena;
 import com.rodrigofujioka.dev.web.service.QuarentenaService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@EnabledIfEnvironmentVariable(named = "ENV", matches = "ci")
 @SpringBootTest(
 				webEnvironment = SpringBootTest.WebEnvironment.MOCK,
 				classes = QuarentenaRest.class)

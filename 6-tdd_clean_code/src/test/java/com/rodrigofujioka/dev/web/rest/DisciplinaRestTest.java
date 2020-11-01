@@ -3,6 +3,7 @@ package com.rodrigofujioka.dev.web.rest;
 import com.rodrigofujioka.dev.web.domain.Disciplina;
 import com.rodrigofujioka.dev.web.service.DisciplinaService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +18,7 @@ import java.util.List;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@EnabledIfEnvironmentVariable(named = "ENV", matches = "ci")
 @SpringBootTest(
 				webEnvironment = SpringBootTest.WebEnvironment.MOCK,
 				classes = DisciplinaRest.class)
