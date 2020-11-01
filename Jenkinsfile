@@ -32,7 +32,7 @@ node {
                             echo "$CODECOV_TOKEN"
                             sh 'curl -s https://codecov.io/bash | bash'
                         }
-                     */}
+                    } */
                 }
             }
         }
