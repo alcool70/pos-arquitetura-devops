@@ -12,7 +12,7 @@ properties(
         ),
         disableConcurrentBuilds(),
         durabilityHint('PERFORMANCE_OPTIMIZED'),
-        timeout(time: 5, unit: 'MINUTES'),
+        // timeout(time: 5, unit: 'MINUTES'),
         timestamps(),
         triggers {
             pollSCM 'H/5 * * * *'
