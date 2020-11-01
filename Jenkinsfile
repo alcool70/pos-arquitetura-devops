@@ -1,11 +1,16 @@
-node {
+#!/usr/bin/env groovy
+import groovy.util.*
+
+properties properties: [
+    disableConcurrentBuilds()
     buildDiscarder(logRotator(numToKeepStr:'10'))
     timeout(time: 5, unit: 'MINUTES')
-
     triggers {
         pollSCM 'H/5 * * * *'
     }
+]
 
+node {
     git url: 'https://github.com/alcool70/pos-arquitetura-devops.git', branch: 'master'
 
     dir('6-tdd_clean_code'){
