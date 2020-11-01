@@ -12,9 +12,9 @@ properties(
         ),
         disableConcurrentBuilds(),
         durabilityHint('PERFORMANCE_OPTIMIZED'),
-        triggers {
-            pollSCM 'H/5 * * * *'
-        }
+        pipelineTriggers ([
+            pollSCM ('H/5 * * * *')
+        ])
     ]
 )
 
