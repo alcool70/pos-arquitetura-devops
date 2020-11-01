@@ -1,14 +1,30 @@
 #!/usr/bin/env groovy
 import groovy.util.*
 
+properties(
+    [
+        buildDiscarder(
+            logRotator(
+                daysToKeepStr: '3',
+                numToKeepStr: '4',
+                artifactNumToKeepStr: '3'
+            )
+        ),
+        disableConcurrentBuilds(),
+        durabilityHint('PERFORMANCE_OPTIMIZED'),
+        timeout(time: 5, unit: 'MINUTES')
+    ]
+)
+
+
+
+timestamps()
+triggers {
+    pollSCM 'H/5 * * * *'
+}
+
 properties([
-    disableConcurrentBuilds()
-    buildDiscarder(logRotator(numToKeepStr:'10'))
-    timeout(time: 5, unit: 'MINUTES')
-    timestamps()
-    triggers {
-        pollSCM 'H/5 * * * *'
-    }
+
 ])
 
 node {
