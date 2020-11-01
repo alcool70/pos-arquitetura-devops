@@ -30,6 +30,7 @@ node {
                     stage('Report') {
                         withCredentials([string(credentialsId: 'codecov', variable: 'CODECOV_TOKEN')]) {
                             echo "$CODECOV_TOKEN"
+                            sh 'curl -s https://codecov.io/bash | bash'
                         }
                     }
                 }
