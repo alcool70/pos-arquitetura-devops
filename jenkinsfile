@@ -1,6 +1,6 @@
 node {
-    git url: 'https://github.com/alcool70/pos-arquitetura-devops.git'
-    dir('6_tdd_clean_code'){
+    git url: 'https://github.com/alcool70/pos-arquitetura-devops.git', branch 'master'
+    dir('6-tdd_clean_code'){
         stage('setup'){
             echo 'Setup...'
         }
