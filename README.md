@@ -4,7 +4,7 @@
 
 ## Pós-graduação em Engenharia e Qualidade de Software
 
-### Arquitetura de Software e DevOps 
+### Arquitetura de Software e DevOps
 
 Fork do repositório [rodrigofujioka/posengsoft](https://github.com/rodrigofujioka/posengsoft) para práticas da pós-graduação de Engenharia e Qualidade de Software.
 
@@ -19,27 +19,31 @@ Fork do repositório [rodrigofujioka/posengsoft](https://github.com/rodrigofujio
 #### Tecnologias usadas:
 - Maven
 - [JDK 11](https://jdk.java.net/java-se-ri/11)
-- [Spring Tools](https://spring.io/tools)  
+- [Spring Tools](https://spring.io/tools)
     - Spring Boot
     - Spring Data
 - SonarQube
 - JaCoCo
-- IDE: [Intellij Idea](https://www.jetbrains.com/idea/) 
+- IDE: [Intellij Idea](https://www.jetbrains.com/idea/)
 
-#### Entregas  
+#### Entregas
 
-- *Swagger*: < link > 
-- *Mensageria*: < link > 
-- *Docker*: < link > 
-- *Sonar/Jenkins*: < link >
-- *DAS*: Este documento
-- *TDD_CLEAN_CODE*: Código corrigido, conforme sugestões do SONAR; cobertura
- de código por testes unitários atingido:   
+- [*Swagger*](https://github.com/alcool70/pos-arquitetura-devops/blob/master/1-swagger/swagger.yaml)
+- [*Mensageria*](https://github.com/alcool70/pos-arquitetura-devops/tree/master/2-mensageria)
+- [*Docker*](https://github.com/alcool70/pos-arquitetura-devops/blob/master/3-docker/DOCKER.md)
+- [*Sonar/Jenkins*](https://github.com/alcool70/pos-arquitetura-devops/blob/master/4-sonar_jenkins/SONAR_JENKINS.md)
+- [*DAS*](https://github.com/alcool70/pos-arquitetura-devops/blob/master/5-das/DAS.md)
+- [*TDD_CLEAN_CODE*](https://github.com/alcool70/pos-arquitetura-devops/tree/master/6-tdd_clean_code)
+  - Código foi corrigido, conforme sugestões do SONAR;
+  - Métricas alcançadas:
+
+    | Quality Gate | Cobertura de código | Segurança | Bugs |
+    |--------------|---------------------|-----------|------|
+    | [![Quality Gate Status](./4-sonar_jenkins/quality-gate.svg)][sonar]| [![Coverage](./4-sonar_jenkins/coverage.svg)][sonar]| [![Security](./4-sonar_jenkins/security.svg)][sonar]|[![Bugs](./4-sonar_jenkins/bugs.svg)][sonar]|
 
 ### Preparação do ambiente
 
-Baseado nas imagens docker disponibilizadas ([rodrigofujioka/jenkins_sonar_postgres](https://hub.docker.com/r/rodrigofujioka/jenkins_sonar_postgres) e [rodrigofujioka/jenkins](https://hub.docker.com/r/rodrigofujioka/jenkins)), foram criadas imagens com as configurações necessárias
- já salvas, de forma a agilizar o ambiente de CI. 
+Baseado nas imagens docker disponibilizadas ([rodrigofujioka/jenkins_sonar_postgres](https://hub.docker.com/r/rodrigofujioka/jenkins_sonar_postgres) e [rodrigofujioka/jenkins](https://hub.docker.com/r/rodrigofujioka/jenkins)), foram criadas imagens com as configurações necessárias já salvas, de forma a agilizar o ambiente de CI.
 
 #### SONAR
 - Necessário configurar o endereço do Sonar no POM.xml no repo
@@ -58,5 +62,8 @@ container$ service sonar start
 
 ```bash
 host$ docker run -it -p8080:8080 -p50000:50000 rustnnes/jenkins:v3
-container$ service jenkins start   
+container$ service jenkins start
 ```
+
+
+[sonar]: http://ip172-18-0-14-buf8ca1qckh000dl5jkg-9000.direct.labs.play-with-docker.com/dashboard?id=alcool70-posengsoft
