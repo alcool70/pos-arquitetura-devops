@@ -28,7 +28,9 @@ node {
                         sh 'ENV=test mvn clean test verify sonar:sonar -Dstyle.color=never'
                     }
                     stage('Report') {
-                        echo 'To Be Implemented...'
+                        withCredentials([string(credentialsId: 'codecov', variable: 'CODECOV_TOKEN')]) {
+                            echo $CODECOV_TOKEN
+                        }
                     }
                 }
             }
