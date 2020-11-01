@@ -28,10 +28,6 @@
         <sonar.language>java</sonar.language>
         <sonar.sources>src/main/java</sonar.sources>
         <sonar.java.binaries>target/classes</sonar.java.binaries>
-        <sonar.coverage.jacoco.xmlReportPaths>
-            target/coverage
-        </sonar.coverage.jacoco.xmlReportPaths>
-        <sonar.junit.reportPaths>target/test-reports</sonar.junit.reportPaths>
     </properties>
 
     <dependencies>
