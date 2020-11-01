@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.projectKey>alcool70-posengsoft</sonar.projectKey>
         <sonar.host.url>
-            http://ip172-18-0-7-buf1ir9qckh000folfi0-9000.direct.labs.play-with-docker.com
+            http://ip172-18-0-14-buf8ca1qckh000dl5jkg-9000.direct.labs.play-with-docker.com
         </sonar.host.url>
         <sonar.login>0314a231aaf7f8f196c462a5a0d381d69346d965</sonar.login>
         <sonar.language>java</sonar.language>
